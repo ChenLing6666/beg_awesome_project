@@ -1,0 +1,22 @@
+<!doctype html>
+
+<head>
+    <script>
+        function navigate(data, summary_type) {
+            window.location.href = `transcribe_output?input=${data}&summary_type=${summary_type}`;
+        }
+        var fetch_url = "{{ fetch_url }}";
+        var summary_type = "{{ summary_type }}"
+        fetch(fetch_url)
+            .then(data => data.text())
+            .then(data => navigate(data, summary_type)); 
+    </script>
+</head>
+
+<body>
+    <div class="loader">
+        <p>
+            Summarizing...
+        </p>
+    </div>
+</body>
